@@ -13,7 +13,14 @@
             
             <div class="panel panel-default">
                 <div class="panel-body">
-                    {{ $planet->name }}
+                    <ul>
+                        @if (isset($planets))
+                        @foreach ($planets as $planet)
+                            <li>{{$planet['name']}}</li>
+                        @endforeach
+                        @endif
+                    </ul>
+                
                 </div>
             </div>
             

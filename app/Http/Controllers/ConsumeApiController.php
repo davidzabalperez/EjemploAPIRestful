@@ -16,10 +16,12 @@ class ConsumeApiController extends Controller
             'timeout'  => 2.0,
         ]);
         //agrega despues de la url base haciendo una peticion GET
-        $response = $client->request('GET', 'planets/1');
-        $planets = json_decode($response->getBody()->getContents());
-        dump($planets);
-        return view('planets.index', compact('planets'));
+        $response = $client->request('GET', 'planets/');
+        $arrayPlanets = json_decode($response->getBody()->getContents(),true);
+        
+        return view('planets.index')->with([
+            'planets'=>$arrayPlanets['results']
+        ]);
 
     }
 }
