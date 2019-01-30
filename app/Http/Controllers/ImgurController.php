@@ -62,7 +62,7 @@ class ImgurController extends Controller
           echo "cURL Error #:" . $err;
         } else {
           $json = json_decode($response, true);
-          return view('imgur.index',['img'=>$json['data']['link']]);
+          return view('profile',['img'=>$json['data']['link']]);
         }
       
     }
